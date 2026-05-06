@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow private pages
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /settings
+Disallow: /chat
+Disallow: /voice
+
+# Sitemap
+Sitemap: https://your-domain.com/sitemap.xml

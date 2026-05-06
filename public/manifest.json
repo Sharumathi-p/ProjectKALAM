@@ -1,0 +1,59 @@
+{
+  "name": "Manasatchi AI - Your Compassionate Companion",
+  "short_name": "Manasatchi AI",
+  "description": "AI voice assistant with personalized family voices for emotional support",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["health", "lifestyle", "social"],
+  "screenshots": [
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Chat",
+      "short_name": "Chat",
+      "description": "Start a new conversation",
+      "url": "/chat",
+      "icons": [
+        {
+          "src": "/icon-chat.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Voice Samples",
+      "short_name": "Voice",
+      "description": "Record voice samples",
+      "url": "/voice",
+      "icons": [
+        {
+          "src": "/icon-mic.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
