@@ -34,7 +34,7 @@ interface VoiceProfile {
   id: string
   name: string
   relationship: string
-  mood_purpose: string
+  mood_purpose: string | null
   voice_id: string | null
   is_active: boolean
   sample_count: number
@@ -424,7 +424,7 @@ export default function VoiceRecorder() {
     setError('')
 
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('voice_profiles')
         .insert({
           user_id: user.id,

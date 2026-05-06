@@ -310,7 +310,7 @@ export default function ChatInterface() {
         
         userVoiceId = profile?.voice_id || null
         console.log('👤 Active profile:', profile?.name, 'Voice ID:', userVoiceId)
-        if (userVoiceId) {
+        if (userVoiceId && profile) {
           console.log('✅ Using voice from profile:', profile.name)
         } else {
           console.log('⚠️ Profile found but no voice_id')
