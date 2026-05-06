@@ -1,194 +1,163 @@
-# Voice Assistant with Personalized Family Voices
-## Solo Developer Edition - 100% Free Tech Stack
+# Manasatchi AI 🤖💙
 
-A compassionate AI voice assistant that provides emotional support and technical assistance using personalized family member voices to help people feel connected to loved ones who are far away.
+> Your compassionate AI companion with personalized family voices for emotional support
 
----
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Sharumathi-p/ProjectKALAM)
 
-## 🎯 Project Overview
+## 🌟 Features
 
-This is a **simplified solo developer version** designed to be built by one person with **minimal budget** using **100% free or pay-as-you-go services**.
-
-### What You'll Build (MVP - Complete!)
-- ✅ User authentication (email/password)
-- ✅ AI-powered text conversations (emotional + technical support)
-- ✅ Voice recording for family voice samples
-- ✅ Text-to-speech with voice cloning (ElevenLabs + Browser TTS)
-- ✅ Speech-to-text for voice input
-- ✅ Multi-language support with real-time translation
-- ✅ Conversation history and context awareness
-- ✅ Auto-speak mode
-- ✅ Voice sample management
-- ✅ Web application (mobile-responsive)
-
-### Tech Stack (All Free Tier)
-- **Frontend**: React + TypeScript
-- **Backend**: Supabase (auth, database, storage, real-time)
-- **Hosting**: Vercel (frontend) + Supabase (backend)
-- **AI/LLM**: OpenAI API (~$0.002/chat)
-- **Voice Cloning**: ElevenLabs (10k chars/month free)
-- **Translation**: DeepL API (500k chars/month free)
-- **Speech**: Web Speech API (browser, free)
-
-### Monthly Cost Estimate
-- **Testing (0-10 users)**: $0-5/month
-- **Light usage (10-50 users)**: $5-10/month
-- **Medium usage (100-500 users)**: $25-100/month
-
----
+- **🎙️ Voice Assistant**: AI-powered voice conversations with emotional intelligence
+- **👨‍👩‍👧‍👦 Family Voices**: Clone and use voices of loved ones for personalized support
+- **💬 Smart Chat**: Context-aware conversations with memory
+- **🌍 Multi-language**: Support for multiple languages with real-time translation
+- **🎨 Beautiful UI**: Modern cyan-themed interface with smooth animations
+- **🔒 Secure**: Built with Supabase authentication and RLS policies
+- **📱 Responsive**: Works seamlessly on desktop and mobile
 
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ installed
-- Git installed
-- Code editor (VS Code recommended)
-- Supabase account (free)
-- OpenAI API key (pay-as-you-go)
 
-### Setup (15 minutes)
+- Node.js 18+ and npm 9+
+- Supabase account
+- Groq API key (free tier available)
+- ElevenLabs API key (optional, for voice cloning)
 
-1. **Clone and Install**
-```bash
-git clone <your-repo-url>
-cd voice-assistant
-npm install
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Sharumathi-p/ProjectKALAM.git
+   cd ProjectKALAM
+   ```
+
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
+
+3. **Set up environment variables**:
+   ```bash
+   cp .env.example .env.local
+   ```
+   
+   Edit `.env.local` and add your API keys:
+   ```bash
+   VITE_SUPABASE_URL=your_supabase_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+   VITE_GROQ_API_KEY=your_groq_api_key
+   VITE_ELEVENLABS_API_KEY=your_elevenlabs_api_key
+   ```
+
+4. **Set up Supabase**:
+   - Run migrations in `supabase/migrations/` folder
+   - Configure authentication settings
+   - Set up storage buckets
+
+5. **Start development server**:
+   ```bash
+   npm run dev
+   ```
+
+6. **Open your browser**:
+   ```
+   http://localhost:5173
+   ```
+
+## 📦 Tech Stack
+
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS + Framer Motion
+- **UI Components**: Material-UI (MUI)
+- **Authentication**: Supabase Auth
+- **Database**: Supabase (PostgreSQL)
+- **AI**: Groq (LLaMA models)
+- **Voice**: ElevenLabs + Web Speech API
+- **Routing**: React Router v6
+- **State Management**: Zustand + React Context
+
+## 🏗️ Project Structure
+
 ```
-
-2. **Set up Supabase**
-- Go to [supabase.com](https://supabase.com)
-- Create new project (free tier)
-- Copy your project URL and anon key
-- Run database migrations (see `docs/setup-guide.md`)
-
-3. **Configure Environment**
-```bash
-cp .env.example .env.local
-# Edit .env.local with your API keys
-```
-
-4. **Run Development Server**
-```bash
-npm run dev
-```
-
-5. **Open Browser**
-```
-http://localhost:3000
-```
-
----
-
-## 📁 Project Structure
-
-```
-voice-assistant/
+ProjectKALAM/
 ├── src/
-│   ├── components/          # React components
-│   │   ├── auth/           # Login, Register
-│   │   ├── chat/           # Chat interface
-│   │   ├── voice/          # Voice recorder, player
-│   │   └── profile/        # User profile, settings
-│   ├── services/           # API integrations
-│   │   ├── supabase.ts     # Supabase client
-│   │   ├── openai.ts       # OpenAI integration
-│   │   ├── elevenlabs.ts   # Voice cloning
-│   │   └── translation.ts  # DeepL translation
-│   ├── contexts/           # React contexts
-│   │   └── AuthContext.tsx # Authentication state
-│   ├── hooks/              # Custom React hooks
-│   ├── types/              # TypeScript types
-│   ├── utils/              # Utility functions
-│   └── App.tsx             # Main app component
-├── supabase/
-│   ├── migrations/         # Database migrations
-│   └── seed.sql           # Sample data
-├── docs/
-│   ├── setup-guide.md     # Detailed setup instructions
-│   ├── week-1-2.md        # Week 1-2 tasks
-│   ├── week-3-4.md        # Week 3-4 tasks
-│   └── ...                # More weekly guides
-├── public/                # Static assets
-├── .env.example          # Environment variables template
-├── package.json          # Dependencies
-└── README.md            # This file
+│   ├── components/       # React components
+│   │   ├── auth/        # Login, Register
+│   │   ├── chat/        # Chat interface
+│   │   ├── dashboard/   # Main dashboard
+│   │   ├── landing/     # Landing page sections
+│   │   ├── profile/     # User profile & settings
+│   │   └── voice/       # Voice recorder
+│   ├── contexts/        # React contexts
+│   ├── pages/           # Page components
+│   ├── services/        # API services
+│   │   ├── supabase.ts
+│   │   ├── openai.ts
+│   │   ├── elevenlabs.ts
+│   │   ├── speech.ts
+│   │   └── translation.ts
+│   ├── types/           # TypeScript types
+│   ├── App.tsx          # Main app component
+│   └── main.tsx         # Entry point
+├── public/              # Static assets
+├── supabase/            # Database migrations
+├── docs/                # Documentation
+├── vercel.json          # Vercel configuration
+└── package.json         # Dependencies
+
 ```
 
----
+## 🔧 Configuration
 
-## 📚 Documentation
+### Supabase Setup
 
-- **[Setup Guide](docs/setup-guide.md)** - Detailed setup instructions
-- **[Week 1-2 Guide](docs/week-1-2.md)** - Authentication & Profile
-- **[Week 3-4 Guide](docs/week-3-4.md)** - User Settings
-- **[Week 5-8 Guide](docs/week-5-8.md)** - Chat Interface
-- **[Architecture](aidlc-docs/SOLO-DEVELOPER-PLAN.md)** - Full architecture plan
+1. Create tables using migrations in `supabase/migrations/`
+2. Enable Row Level Security (RLS)
+3. Configure authentication providers
+4. Set up storage buckets for voice samples
 
----
+### Environment Variables
 
-## 🛠️ Development Workflow
+| Variable | Description | Required |
+|----------|-------------|----------|
+| `VITE_SUPABASE_URL` | Supabase project URL | Yes |
+| `VITE_SUPABASE_ANON_KEY` | Supabase anonymous key | Yes |
+| `VITE_GROQ_API_KEY` | Groq API key for AI | Yes |
+| `VITE_ELEVENLABS_API_KEY` | ElevenLabs for voice cloning | Optional |
+| `VITE_APP_NAME` | Application name | No |
+| `VITE_ENABLE_VOICE_CLONING` | Enable voice cloning feature | No |
 
-### Week 1-2: Authentication (Current Phase)
-- [x] Project setup
-- [ ] Supabase configuration
-- [ ] Registration page
-- [ ] Login page
-- [ ] Protected routes
-- [ ] Deploy to Vercel
+## 🚢 Deployment
 
-### Week 3-4: User Profile
-- [ ] Profile form
-- [ ] Settings page
-- [ ] Preferences storage
+### Deploy to Vercel (Recommended)
 
-### Week 5-8: Chat Interface
-- [ ] Chat UI
-- [ ] OpenAI integration
-- [ ] Conversation history
+1. **Push to GitHub** (already done!)
 
-### Week 9-12: Voice Recording
-- [ ] Voice recorder
-- [ ] Audio upload
-- [ ] Voice sample management
+2. **Import to Vercel**:
+   - Go to https://vercel.com/new
+   - Import your GitHub repository
+   - Add environment variables
+   - Deploy!
 
-### Week 13-16: Text-to-Speech
-- [ ] Browser TTS
-- [ ] Audio controls
+3. **Update Supabase**:
+   - Set Site URL to your Vercel domain
+   - Add redirect URLs
 
-### Week 17-20: Voice Cloning
-- [ ] ElevenLabs integration
-- [ ] Voice model management
+See [VERCEL-DEPLOYMENT-STEPS.md](./VERCEL-DEPLOYMENT-STEPS.md) for detailed instructions.
 
-### Week 21-24: Speech-to-Text
-- [ ] Microphone input
-- [ ] Real-time transcription
+### Deploy to Other Platforms
 
-### Week 25-28: Multi-Language
-- [ ] DeepL integration
-- [ ] Language selector
+The app can be deployed to any platform that supports Node.js:
+- Netlify
+- Railway
+- Render
+- AWS Amplify
 
----
+## 📖 Documentation
 
-## 🔑 Environment Variables
-
-Create `.env.local` file:
-
-```env
-# Supabase
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-
-# OpenAI
-VITE_OPENAI_API_KEY=your_openai_api_key
-
-# ElevenLabs (optional for now)
-VITE_ELEVENLABS_API_KEY=your_elevenlabs_api_key
-
-# DeepL (optional for now)
-VITE_DEEPL_API_KEY=your_deepl_api_key
-```
-
----
+- [Setup Guide](./docs/setup-guide.md)
+- [Deployment Guide](./docs/deployment-guide.md)
+- [Vercel Deployment Steps](./VERCEL-DEPLOYMENT-STEPS.md)
 
 ## 🧪 Testing
 
@@ -199,106 +168,43 @@ npm test
 # Run tests with coverage
 npm run test:coverage
 
-# Run linter
-npm run lint
+# Build for production
+npm run build
 
-# Format code
-npm run format
+# Preview production build
+npm run preview
 ```
-
----
-
-## 🚢 Deployment
-
-### Deploy to Vercel (Free)
-
-1. Push code to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import your repository
-4. Add environment variables
-5. Deploy!
-
-```bash
-# Or use Vercel CLI
-npm install -g vercel
-vercel
-```
-
----
-
-## 💡 Tips for Solo Development
-
-### Time Management
-- Work 2-3 hours/day consistently
-- Focus on one feature at a time
-- Don't try to be perfect
-- Ship early, iterate often
-
-### Get Help
-- Join [Supabase Discord](https://discord.supabase.com)
-- Join [React Discord](https://discord.gg/react)
-- Ask on [Stack Overflow](https://stackoverflow.com)
-- Use ChatGPT for code help
-
-### Stay Motivated
-- Build in public (Twitter, Reddit)
-- Get early user feedback
-- Track your progress
-- Remember the impact you're making
-
----
-
-## 📖 Learning Resources
-
-### React
-- [React Docs](https://react.dev)
-- [FreeCodeCamp React Course](https://www.youtube.com/watch?v=bMknfKXIFA8)
-
-### Supabase
-- [Supabase Docs](https://supabase.com/docs)
-- [Supabase YouTube](https://www.youtube.com/c/Supabase)
-
-### OpenAI API
-- [OpenAI Docs](https://platform.openai.com/docs)
-- [OpenAI Cookbook](https://github.com/openai/openai-cookbook)
-
-### Voice/Audio
-- [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
-- [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API)
-
----
 
 ## 🤝 Contributing
 
-This is a solo project, but feedback and suggestions are welcome!
+Contributions are welcome! Please feel free to submit a Pull Request.
 
 1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
----
+## 📝 License
 
-## 📄 License
-
-MIT License - Feel free to use this for your own projects!
-
----
+This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
-- Built with love for people missing their families
-- Inspired by the need for emotional connection
-- Powered by amazing open-source tools
+- **Groq** for fast AI inference
+- **Supabase** for backend infrastructure
+- **ElevenLabs** for voice cloning technology
+- **Vercel** for hosting and deployment
+
+## 📧 Contact
+
+- **GitHub**: [@Sharumathi-p](https://github.com/Sharumathi-p)
+- **Email**: poojamadhu2017@gmail.com
+
+## 🌟 Star History
+
+If you find this project useful, please consider giving it a star! ⭐
 
 ---
 
-## 📞 Support
-
-- **Issues**: [GitHub Issues](your-repo-url/issues)
-- **Discussions**: [GitHub Discussions](your-repo-url/discussions)
-- **Email**: your-email@example.com
-
----
-
-**Remember**: You're building something that will help people feel less lonely. That's amazing! 💙
+**Built with ❤️ for emotional well-being and connection**

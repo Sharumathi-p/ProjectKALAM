@@ -66,3 +66,7 @@ aidlc-docs/
 
 # Kiro IDE
 .kiro/
+
+# Secure files with API keys
+ENVIRONMENT-VARIABLES-SECURE.txt
+*SECURE*.txt
