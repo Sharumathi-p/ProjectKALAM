@@ -10,7 +10,6 @@
 
 // Configuration
 const INDIC_PARLER_API_URL = import.meta.env.VITE_INDIC_PARLER_API_URL || 'http://localhost:8000'
-const USE_LOCAL_MODEL = import.meta.env.VITE_USE_LOCAL_TTS === 'true'
 
 export interface TTSOptions {
   text: string

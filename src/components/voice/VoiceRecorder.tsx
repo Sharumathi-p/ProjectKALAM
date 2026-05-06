@@ -18,7 +18,6 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@contexts/AuthContext'
 import { supabase } from '@services/supabase'
-import { updatePreferences } from '@services/supabase'
 import { audioRecorder } from '@services/speech'
 import { createVoice, isElevenLabsConfigured } from '@services/elevenlabs'
 import { transcribeAudio, generateSampleName, isTranscriptionConfigured } from '@services/transcription'
@@ -57,7 +56,6 @@ export default function VoiceRecorder() {
   const [showProfileDialog, setShowProfileDialog] = useState(false)
   const [showUploadDialog, setShowUploadDialog] = useState(false)
   const [sampleName, setSampleName] = useState('')
-  const [currentBlob, setCurrentBlob] = useState<Blob | null>(null)
   const [uploadedFile, setUploadedFile] = useState<File | null>(null)
   
   // Profile form
@@ -950,7 +948,7 @@ export default function VoiceRecorder() {
                   Cancel
                 </button>
                 <button
-                  onClick={saveRecording}
+                  onClick={() => saveRecordingAuto(new Blob())}
                   disabled={loading || !sampleName.trim()}
                   className="flex-1 px-4 py-3 rounded-lg text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed bg-teal-600/20 backdrop-blur-sm hover:bg-teal-600/30 border-2 border-cyan-400/30 hover:border-cyan-400/50 hover:shadow-[0_0_25px_rgba(34,211,238,0.4)] active:border-cyan-400 active:shadow-[0_0_35px_rgba(34,211,238,0.7)] transition-all"
                 >

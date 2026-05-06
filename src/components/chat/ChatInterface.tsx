@@ -21,7 +21,7 @@ import { supabase } from '@services/supabase'
 import { sendChatMessage, getEmotionalSupportPrompt, Message as AIMessage } from '@services/openai'
 import { ttsService, sttService } from '@services/speech'
 import { translateText, isTranslationConfigured } from '@services/translation'
-import { isElevenLabsConfigured, synthesizeSpeech, getVoices } from '@services/elevenlabs'
+import { isElevenLabsConfigured, synthesizeSpeech } from '@services/elevenlabs'
 
 interface Message {
   id: string
