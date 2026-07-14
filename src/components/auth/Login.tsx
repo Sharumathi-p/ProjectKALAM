@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Mail, Lock, ArrowRight, AlertCircle } from 'lucide-react'
 import { useAuth } from '@contexts/AuthContext'
+import DiagnosticCheck from './DiagnosticCheck'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -18,10 +19,29 @@ export default function Login() {
     setLoading(true)
 
     try {
+      // Check environment variables first
+      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+      const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+      
+      if (!supabaseUrl || !supabaseKey) {
+        throw new Error('Configuration error: Supabase credentials are missing. Please contact support.')
+      }
+
       await signIn(email, password)
       navigate('/dashboard')
     } catch (err: any) {
-      setError(err.message || 'Failed to sign in. Please check your credentials.')
+      console.error('Sign in error:', err)
+      
+      // Provide more helpful error messages
+      if (err.message?.includes('Failed to fetch')) {
+        setError('Unable to connect to authentication service. Please check your internet connection or try again later.')
+      } else if (err.message?.includes('Invalid login credentials')) {
+        setError('Invalid email or password. Please check your credentials and try again.')
+      } else if (err.message?.includes('Configuration error')) {
+        setError(err.message)
+      } else {
+        setError(err.message || 'Failed to sign in. Please try again.')
+      }
     } finally {
       setLoading(false)
     }
@@ -29,6 +49,9 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center px-4 py-12 cyan-gradient-overlay" data-version="dark-cyan-v2">
+      {/* Diagnostic Check - Remove after debugging */}
+      <DiagnosticCheck />
+      
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
